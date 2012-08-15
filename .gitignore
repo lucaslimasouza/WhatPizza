@@ -1,4 +1,8 @@
 *.class
+.project
+.setting/org.eclipse.jdt.core.prefs
+.gitignore~
+.classpath
 
 # Package Files #
 *.jar
