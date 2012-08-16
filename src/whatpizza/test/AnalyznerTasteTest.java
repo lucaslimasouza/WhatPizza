@@ -32,7 +32,7 @@ public class AnalyznerTasteTest extends TestCase {
 	
 	public void testParticularTotalNotesPizza() {
 		int[] arrayNotes = {5,5,4};
-		Map<String,	Integer>  highNotes = buildHashhNotes(arrayNotes);
+		Map<String,Integer>  highNotes = buildHashhNotes(arrayNotes);
 		Person person = mock(Person.class);
 		when(person.pizzaNotes()).thenReturn(highNotes);
 		assertEquals(14, analyzer.particularTotalNotesPizza(person));
@@ -44,21 +44,21 @@ public class AnalyznerTasteTest extends TestCase {
 		analyzer.addPerson(similarTastePerson);
 		analyzer.addPerson(wrongTastePerson);
 		Person personToCompare = buildPersonToCompare();
-		assertEquals(similarTastePerson.toString(),analyzer.whoHaveSimilarPizzaTaste(personToCompare));
+		assertEquals(similarTastePerson.toString(),analyzer.whoHaveSimilarPizzaTaste(personToCompare).toString());
 	}
 
 	private Person buildPersonToCompare() {
 		Person personToCompare = mock(Person.class);
-		int[] arrayHighNotes = {5,5,4};
-		Map<String,	Integer> highNotes = buildHashhNotes(arrayHighNotes);
+		int[] arrayHighNotes = {3,3,1};
+		Map<String,Integer> highNotes = buildHashhNotes(arrayHighNotes);
 		when(personToCompare.pizzaNotes()).thenReturn(highNotes);
 		return personToCompare;
 	}
 
 	private Person buildWrongTastePerson() {
 		Person wrongTastePerson = mock(Person.class);
-		int[] arraySlowNotes = {3,2,5};
-		Map<String, Integer> slowNotes = buildHashhNotes(arraySlowNotes);
+		int[] arraySlowNotes = {5,4,5};
+		Map<String,Integer> slowNotes = buildHashhNotes(arraySlowNotes);
 		when(wrongTastePerson.pizzaNotes()).thenReturn(slowNotes);
 		when(wrongTastePerson.toString()).thenReturn("Wrong");
 		return wrongTastePerson;
@@ -66,7 +66,7 @@ public class AnalyznerTasteTest extends TestCase {
 
 	private Person buildSimilarTastePerson() {
 		Person similarTastePerson = mock(Person.class);
-		int[] arrayMiddleNotes = {5,4,4};
+		int[] arrayMiddleNotes = {5,5,1};
 		Map<String, Integer> middleNotes = buildHashhNotes(arrayMiddleNotes);
 		when(similarTastePerson.pizzaNotes()).thenReturn(middleNotes);
 		when(similarTastePerson.toString()).thenReturn("João");
